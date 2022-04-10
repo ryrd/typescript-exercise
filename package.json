@@ -1,0 +1,15 @@
+{
+  "name": "ryrd-outcome",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile-tailwind": "tailwindcss -i ./css/input.css -o ./css/output.css --watch",
+    "compile-ts": "tsc -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.0.23"
+  }
+}
