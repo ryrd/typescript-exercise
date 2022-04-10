@@ -63,13 +63,16 @@ button.danger{
         transition ease-in duration-200;
 }
 
-button.danger:before{
+button.danger:before,
+button.danger2:before{
     content: '.';
     @apply bg-black text-black absolute -right-[3px] -top-[7px] w-[11px] h-[20px] -rotate-45
-            border border-red-900 border-y-0 border-r-0;
+    border border-red-900 border-y-0 border-r-0;
 }
 
-button.danger:after{
+
+button.danger:after,
+button.danger2:after{
     content: '.';
     @apply bg-black text-black absolute -left-[3px] -bottom-[7px] w-[11px] h-[20px] -rotate-45
             border border-red-900 border-y-0 border-l-0;
