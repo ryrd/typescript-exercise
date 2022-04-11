@@ -606,6 +606,42 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 40%;
 }
 
+.h-\[1\/2\] {
+  height: 1 / 2;
+}
+
+.h-\[600px\] {
+  height: 600px;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.min-h-\[\] {
+  min-height: ;
+}
+
+.min-h-\[300px\] {
+  min-height: 300px;
+}
+
+.min-h-\[400px\] {
+  min-height: 400px;
+}
+
+.min-h-\[370px\] {
+  min-height: 370px;
+}
+
+.min-h-\[380px\] {
+  min-height: 380px;
+}
+
+.min-h-\[360px\] {
+  min-height: 360px;
+}
+
 .w-screen {
   width: 100vw;
 }
@@ -654,6 +690,34 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 36rem;
 }
 
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.flex-\[11\] {
+  flex: 11;
+}
+
+.flex-\[1\] {
+  flex: 1;
+}
+
+.flex-\[1_11\] {
+  flex: 1 11;
+}
+
+.flex-\[15\] {
+  flex: 15;
+}
+
+.flex-\[16\] {
+  flex: 16;
+}
+
+.flex-\[19\] {
+  flex: 19;
+}
+
 .-translate-y-3 {
   --tw-translate-y: -0.75rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -664,6 +728,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -672,8 +740,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-direction: column;
 }
 
+.items-start {
+  align-items: flex-start;
+}
+
 .items-center {
   align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .justify-center {
@@ -745,6 +821,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-green-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(21 128 61 / var(--tw-bg-opacity));
+}
+
+.bg-blue-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-70 {
@@ -1111,6 +1192,58 @@ button.danger2:after{
 @media (min-width: 768px) {
   .md\:-top-0 {
     top: -0px;
+  }
+
+  .md\:h-60 {
+    height: 15rem;
+  }
+
+  .md\:h-\[60\%\] {
+    height: 60%;
+  }
+
+  .md\:h-\[65\%\] {
+    height: 65%;
+  }
+
+  .md\:h-2 {
+    height: 0.5rem;
+  }
+
+  .md\:h-\[\] {
+    height: ;
+  }
+
+  .md\:h-\[6px\] {
+    height: 6px;
+  }
+
+  .md\:w-\[60\%\] {
+    width: 60%;
+  }
+
+  .md\:w-\[70\%\] {
+    width: 70%;
+  }
+
+  .md\:w-\[50\%\] {
+    width: 50%;
+  }
+
+  .md\:w-1\/2 {
+    width: 50%;
+  }
+
+  .md\:w-2 {
+    width: 0.5rem;
+  }
+
+  .md\:w-\[\] {
+    width: ;
+  }
+
+  .md\:w-\[6px\] {
+    width: 6px;
   }
 
   .md\:text-7xl {

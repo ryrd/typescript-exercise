@@ -1,5 +1,4 @@
 const mainText = document.querySelector('#main-text') as HTMLHeadingElement;
-const todaySpentInput = document.querySelector('#today-spent-input') as HTMLInputElement;
 
 const addPeriod: Function = (x: number): string => {
     var parts = x.toString().split(".");
@@ -16,6 +15,7 @@ if(localStorage.getItem('money-left') !== null){
 }
 
 const form = document.querySelector('#today-spent-form') as HTMLFormElement;
+const todaySpentInput = document.querySelector('#today-spent-input') as HTMLInputElement;
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -24,6 +24,8 @@ form.addEventListener('submit', e => {
         moneyLeft -= parseInt(todaySpentInput.value);
         mainText.innerText = addPeriod(moneyLeft);
         localStorage.setItem('money-left', moneyLeft.toString());
+        todaySpentInput.value = '';
+        todaySpentInput.blur();
     }else {
         console.log('kosong');
     };
@@ -39,6 +41,8 @@ incomeForm.addEventListener('submit', e => {
         mainText.innerText = addPeriod(moneyLeft);
         localStorage.setItem('money-left', moneyLeft.toString());
         toggleAddReset();
+        incomeInput.value = '';
+        incomeInput.blur();
     }else {
         console.log('kosong');
     };
@@ -108,6 +112,9 @@ cancelReset.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
     toggleAddReset();
     togglePopup();
-    // code for reset saving down here
+
+    moneyLeft = 0;
+    mainText.innerText = addPeriod(moneyLeft);
+    localStorage.setItem('money-left', moneyLeft.toString());
 });
 
