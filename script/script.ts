@@ -1,13 +1,66 @@
-const mainText = document.querySelector('#main-text') as HTMLHeadingElement;
+//---------------------variables----------------
+let moneyLeft: number = 0;
+let lastSpents: number[] = [];
+let last3daysSpents: [number, number, number] = [0 , 0 , 0];
+
+//---------------------------------------------
+//---------------------------------------------
+
+const showAddReset = document.querySelector('#show-add') as HTMLButtonElement;
+const addReset = document.querySelector('#add-reset') as HTMLDivElement;
+const addResetContent = document.querySelector('#add-reset-content') as HTMLDivElement;
+
+// reusable function
+const toggleAddReset :Function = (): void => {
+    addReset.classList.toggle("hidden");
+    addReset.classList.toggle("flex");
+    // addReset.classList.toggle('bg-opacity-0');
+    // addReset.classList.toggle('bg-opacity-70');
+    // addResetContent.classList.toggle('translate-y-full');
+    // addResetContent.classList.toggle('translate-y-0');
+};
+
+const togglePopup :Function = (): void => {
+    popup.classList.toggle("hidden");
+    popup.classList.toggle("flex");
+    popup.classList.toggle('bg-opacity-0');
+    popup.classList.toggle('bg-opacity-70');
+};
+
+const emptyPopup = document.querySelector('#empty-popup') as HTMLDivElement;
+const toggleEmptyPopup :Function = (): void => {
+    emptyPopup.classList.toggle("hidden");
+    emptyPopup.classList.toggle("flex");
+};
 
 const addPeriod: Function = (x: number): string => {
-    var parts = x.toString().split(".");
+    let parts = x.toString().split(".");
     parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
     return parts.join("");
-}   
+}
 
+const lastSpentList = document.querySelector('#today-spents') as HTMLUListElement;
 
-let moneyLeft: number = 0;
+const addNewSpent: Function = (spents: number[]) :void => {
+    
+    const newspentlist = spents.map(spent => {
+        return `<li class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1">${spent}</li>`;
+    });
+
+    lastSpentList.innerHTML = newspentlist.toString().replace(/,/g, "");
+}
+
+if(localStorage.getItem('last-spents') !== null){
+    const lastSpentsFromLocal = JSON.parse(localStorage.getItem('last-spents')!);
+    lastSpents.push(...lastSpentsFromLocal);
+    console.log(lastSpents);
+    addNewSpent(lastSpentsFromLocal);
+}
+
+//-------------------------------------------------------------
+//-------------------------------------------------------------
+
+const mainText = document.querySelector('#main-text') as HTMLHeadingElement;
 
 if(localStorage.getItem('money-left') !== null){
     mainText.innerText = addPeriod(parseInt(localStorage.getItem('money-left')!));
@@ -20,14 +73,21 @@ const todaySpentInput = document.querySelector('#today-spent-input') as HTMLInpu
 form.addEventListener('submit', e => {
     e.preventDefault();
     if(todaySpentInput.value){
-        localStorage.setItem('new-spent', todaySpentInput.value);
         moneyLeft -= parseInt(todaySpentInput.value);
         mainText.innerText = addPeriod(moneyLeft);
         localStorage.setItem('money-left', moneyLeft.toString());
+
+        lastSpents.push(parseInt(todaySpentInput.value));
+        console.log(lastSpents);
+        const lastSpentsToLocal = JSON.stringify(lastSpents);
+        localStorage.setItem('last-spents', lastSpentsToLocal);
+        addNewSpent(lastSpents);
+        
+
         todaySpentInput.value = '';
         todaySpentInput.blur();
     }else {
-        console.log('kosong');
+        toggleEmptyPopup();
     };
 });
 
@@ -44,34 +104,13 @@ incomeForm.addEventListener('submit', e => {
         incomeInput.value = '';
         incomeInput.blur();
     }else {
-        console.log('kosong');
+        toggleEmptyPopup();
     };
 });
 
 
 //---------------------------------------------------------------------
 //---------------------------------------------------------------------
-
-const showAddReset = document.querySelector('#show-add') as HTMLButtonElement;
-const addReset = document.querySelector('#add-reset') as HTMLDivElement;
-const addResetContent = document.querySelector('#add-reset-content') as HTMLDivElement;
-
-// reusable function
-const toggleAddReset :Function = () => {
-    addReset.classList.toggle("hidden");
-    addReset.classList.toggle("flex");
-    // addReset.classList.toggle('bg-opacity-0');
-    // addReset.classList.toggle('bg-opacity-70');
-    // addResetContent.classList.toggle('translate-y-full');
-    // addResetContent.classList.toggle('translate-y-0');
-};
-
-const togglePopup :Function = () => {
-    popup.classList.toggle("hidden");
-    popup.classList.toggle("flex");
-    popup.classList.toggle('bg-opacity-0');
-    popup.classList.toggle('bg-opacity-70');
-};
 
 //---------show add reset--------
 
@@ -118,3 +157,7 @@ resetBtn.addEventListener('click', () => {
     localStorage.setItem('money-left', moneyLeft.toString());
 });
 
+//------------close empty popup----------------
+emptyPopup.addEventListener('click', () => {
+    toggleEmptyPopup();
+});

@@ -512,8 +512,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   left: -20%;
 }
 
-.-top-2 {
-  top: -0.5rem;
+.right-4 {
+  right: 1rem;
+}
+
+.top-3 {
+  top: 0.75rem;
+}
+
+.-z-10 {
+  z-index: -10;
 }
 
 .z-0 {
@@ -536,10 +544,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   float: left;
 }
 
-.clear-both {
-  clear: both;
-}
-
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -548,6 +552,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .my-1 {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
+}
+
+.my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .mr-1 {
@@ -590,8 +599,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 3rem;
 }
 
+.h-28 {
+  height: 7rem;
+}
+
 .h-1\/2 {
   height: 50%;
+}
+
+.h-10 {
+  height: 2.5rem;
 }
 
 .h-5 {
@@ -606,36 +623,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 40%;
 }
 
-.h-\[1\/2\] {
-  height: 1 / 2;
-}
-
-.h-\[600px\] {
-  height: 600px;
-}
-
-.h-10 {
-  height: 2.5rem;
-}
-
-.min-h-\[\] {
-  min-height: ;
-}
-
-.min-h-\[300px\] {
-  min-height: 300px;
-}
-
-.min-h-\[400px\] {
-  min-height: 400px;
-}
-
-.min-h-\[370px\] {
-  min-height: 370px;
-}
-
-.min-h-\[380px\] {
-  min-height: 380px;
+.h-\[120px\] {
+  height: 120px;
 }
 
 .min-h-\[360px\] {
@@ -682,45 +671,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 180px;
 }
 
-.w-\[\] {
-  width: ;
+.w-\[150px\] {
+  width: 150px;
 }
 
 .max-w-xl {
   max-width: 36rem;
 }
 
-.flex-1 {
-  flex: 1 1 0%;
-}
-
-.flex-\[11\] {
-  flex: 11;
-}
-
 .flex-\[1\] {
   flex: 1;
 }
 
-.flex-\[1_11\] {
-  flex: 1 11;
-}
-
-.flex-\[15\] {
-  flex: 15;
-}
-
-.flex-\[16\] {
-  flex: 16;
-}
-
 .flex-\[19\] {
   flex: 19;
-}
-
-.-translate-y-3 {
-  --tw-translate-y: -0.75rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .rotate-180 {
@@ -738,10 +702,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .flex-col {
   flex-direction: column;
-}
-
-.items-start {
-  align-items: flex-start;
 }
 
 .items-center {
@@ -764,12 +724,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   overflow: hidden;
 }
 
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
 .border {
   border-width: 1px;
 }
 
 .border-4 {
   border-width: 4px;
+}
+
+.border-0 {
+  border-width: 0px;
 }
 
 .border-l-0 {
@@ -823,9 +791,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(21 128 61 / var(--tw-bg-opacity));
 }
 
-.bg-blue-400 {
+.bg-transparent {
+  background-color: transparent;
+}
+
+.bg-red-900 {
   --tw-bg-opacity: 1;
-  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-70 {
@@ -842,6 +814,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .p-1 {
   padding: 0.25rem;
+}
+
+.p-0 {
+  padding: 0px;
 }
 
 .px-5 {
@@ -887,6 +863,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
 .opacity-0 {
@@ -1153,11 +1134,30 @@ button.danger2:after{
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+/* #cancel-reset{
+    
+} */
+
+#empty-btn:hover, #cancel-reset:hover {
+  background-color: transparent;
+}
+
+#cancel-reset:before, #cancel-reset:after, #empty-btn:before, #empty-btn:after {
+  border-width: 0px;
+  background-color: transparent;
+}
+
 #main-text{
   text-shadow:0 0 2px #fff,
                 0 0 10px #ffffff55,
                 0 0 20px #003813,
                 0 0 30px #003813;
+}
+
+.decorator{
+  box-shadow:0 0 1px #ffffff55,
+                0 0 15px #003813,
+                0 0 25px #003813;
 }
 
 .selection\:bg-green-900 *::-moz-selection {
@@ -1190,60 +1190,20 @@ button.danger2:after{
 }
 
 @media (min-width: 768px) {
-  .md\:-top-0 {
-    top: -0px;
-  }
-
-  .md\:h-60 {
-    height: 15rem;
-  }
-
-  .md\:h-\[60\%\] {
-    height: 60%;
+  .md\:h-\[6px\] {
+    height: 6px;
   }
 
   .md\:h-\[65\%\] {
     height: 65%;
   }
 
-  .md\:h-2 {
-    height: 0.5rem;
-  }
-
-  .md\:h-\[\] {
-    height: ;
-  }
-
-  .md\:h-\[6px\] {
-    height: 6px;
-  }
-
-  .md\:w-\[60\%\] {
-    width: 60%;
-  }
-
-  .md\:w-\[70\%\] {
-    width: 70%;
-  }
-
-  .md\:w-\[50\%\] {
-    width: 50%;
+  .md\:w-\[6px\] {
+    width: 6px;
   }
 
   .md\:w-1\/2 {
     width: 50%;
-  }
-
-  .md\:w-2 {
-    width: 0.5rem;
-  }
-
-  .md\:w-\[\] {
-    width: ;
-  }
-
-  .md\:w-\[6px\] {
-    width: 6px;
   }
 
   .md\:text-7xl {
