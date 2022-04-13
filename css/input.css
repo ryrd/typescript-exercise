@@ -59,6 +59,17 @@ input[type=number] {
     transition: .4s cubic-bezier(0,.4,.04,.98);
 }
 
+@media (min-width: 768px) { 
+    /* #add-reset{
+        background-color: #00090000;
+        transition: .3s ease-in;
+    } */
+    #add-reset-content{
+        bottom: 0;
+        transform: translateY(0%);
+    }
+}
+
 /* --------------------tailwind applies---------------- */
 .line{
     @apply bg-green-900 h-[2px] w-full my-5 shadow-lg shadow-green-500/50 z-10;

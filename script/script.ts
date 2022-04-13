@@ -110,7 +110,7 @@ if(localStorage.getItem('current-date') !== null) {
         //change last 3 days localstorage
         localStorage.setItem('last-3days-spent', JSON.stringify(last3daysSpents));
 
-        //delete yesyerday lastSpents
+        //delete yesterday lastSpents
         lastSpents = [];
         localStorage.removeItem('last-spents');
     }   
@@ -150,9 +150,11 @@ incomeForm.addEventListener('submit', e => {
         localStorage.setItem('money-left', moneyLeft.toString());
 
         toggleAddReset();
-        addResetContent.style.transform = 'translateY(100%)';
-        addReset.style.backgroundColor = '#00000000';
-
+        if(window.innerWidth < 768){
+            addResetContent.style.transform = 'translateY(100%)';
+            addReset.style.backgroundColor = '#00000000';
+        }
+        
         incomeInput.value = '';
         incomeInput.blur();
     }else {
@@ -163,8 +165,11 @@ incomeForm.addEventListener('submit', e => {
 //bottom to reset saving and close reset pop up
 resetBtn.addEventListener('click', () => {
     toggleAddReset();
-    addResetContent.style.transform = 'translateY(100%)';
-    addReset.style.backgroundColor = '#00000000';
+
+    if(window.innerWidth < 768){
+        addResetContent.style.transform = 'translateY(100%)';
+        addReset.style.backgroundColor = '#00000000';
+    }
 
     togglePopup();
 
@@ -191,14 +196,18 @@ showAddReset.addEventListener('click', () => {
 addReset.addEventListener('click', e => {
     if(e.target === e.currentTarget) {
         toggleAddReset();
-        addResetContent.style.transform = 'translateY(100%)';
-        addReset.style.backgroundColor = '#00000000';
+        if(window.innerWidth < 768){
+            addResetContent.style.transform = 'translateY(100%)';
+            addReset.style.backgroundColor = '#00000000';
+        }
     };
 });
 addMenuDown.addEventListener('click', () => {
     toggleAddReset();
-    addResetContent.style.transform = 'translateY(100%)';
-    addReset.style.backgroundColor = '#00000000';
+    if(window.innerWidth < 768){
+        addResetContent.style.transform = 'translateY(100%)';
+        addReset.style.backgroundColor = '#00000000';
+    }
 });
 
 //show reset pop up
