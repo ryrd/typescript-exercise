@@ -3,6 +3,7 @@
 let moneyLeft = 0;
 let lastSpents = [];
 let last3daysSpents = [0, 0, 0];
+let previousMoneyLeft;
 //---------------------DOM selections----------------
 const mainText = document.querySelector('#main-text');
 const form = document.querySelector('#today-spent-form');
@@ -20,6 +21,7 @@ const cancelReset = document.querySelector('#cancel-reset');
 const resetBtn = document.querySelector('.danger2');
 const resetSavingBtn = document.querySelector('#reset-saving');
 const emptyPopup = document.querySelector('#empty-popup');
+const moneyLestPopup = document.querySelector('#money-lest-popup');
 //---------------------------------------------
 //---------------------------------------------
 // -------------------reusable function---------------------
@@ -35,10 +37,29 @@ const toggleEmptyPopup = () => {
     emptyPopup.classList.toggle("hidden");
     emptyPopup.classList.toggle("flex");
 };
+const toggleMoneyLestPopup = () => {
+    moneyLestPopup.classList.toggle("hidden");
+    moneyLestPopup.classList.toggle("flex");
+};
 const addPeriod = (x) => {
     let parts = x.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return parts.join("");
+};
+//-----------------money counter animation--------------------
+//counter animation function copied from Md. Taifuzzaman Bilash on codepen.io --with very little modification
+const counterAnim = (start, end) => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp)
+            startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / 1000, 1);
+        mainText.innerText = addPeriod(Math.floor(progress * (end - start) + start));
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
 };
 const addNewSpent = (spents) => {
     const newspentlist = spents.map(spent => {
@@ -99,14 +120,28 @@ else {
 form.addEventListener('submit', e => {
     e.preventDefault();
     if (todaySpentInput.value) {
-        moneyLeft -= parseInt(todaySpentInput.value);
-        mainText.innerText = addPeriod(moneyLeft);
-        localStorage.setItem('money-left', moneyLeft.toString());
-        lastSpents.push(parseInt(todaySpentInput.value));
-        localStorage.setItem('last-spents', JSON.stringify(lastSpents));
-        addNewSpent(lastSpents);
-        todaySpentInput.value = '';
-        todaySpentInput.blur();
+        if ((moneyLeft - parseInt(todaySpentInput.value)) > 0) {
+            previousMoneyLeft = moneyLeft;
+            moneyLeft -= parseInt(todaySpentInput.value);
+            localStorage.setItem('money-left', moneyLeft.toString());
+            counterAnim(previousMoneyLeft, moneyLeft);
+            lastSpents.push(parseInt(todaySpentInput.value));
+            localStorage.setItem('last-spents', JSON.stringify(lastSpents));
+            addNewSpent(lastSpents);
+            todaySpentInput.value = '';
+            todaySpentInput.blur();
+        }
+        else if (todaySpentInput.value === '8000000000') {
+            document.querySelector('#m').classList.toggle('hidden');
+            setTimeout(() => {
+                document.querySelector('#m').classList.toggle('hidden');
+                todaySpentInput.value = '';
+                todaySpentInput.blur();
+            }, 700);
+        }
+        else {
+            toggleMoneyLestPopup();
+        }
     }
     else {
         toggleEmptyPopup();
@@ -117,9 +152,10 @@ form.addEventListener('submit', e => {
 incomeForm.addEventListener('submit', e => {
     e.preventDefault();
     if (incomeInput.value) {
+        previousMoneyLeft = moneyLeft;
         moneyLeft += parseInt(incomeInput.value);
-        mainText.innerText = addPeriod(moneyLeft);
         localStorage.setItem('money-left', moneyLeft.toString());
+        counterAnim(previousMoneyLeft, moneyLeft);
         toggleAddReset();
         if (window.innerWidth < 768) {
             addResetContent.style.transform = 'translateY(100%)';
@@ -149,6 +185,24 @@ resetBtn.addEventListener('click', () => {
 });
 //------------------------------------------------------------
 //------------------------------------------------------------
+const mediaQuerySmall = window.matchMedia('(max-width: 767px)');
+const mediaQueryMedium = window.matchMedia('(min-width: 768px)');
+let currentWindowSize;
+if (window.innerWidth < 768)
+    currentWindowSize = 'small';
+else if (window.innerWidth >= 768)
+    currentWindowSize = 'medium';
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 768 && currentWindowSize != 'small') {
+        currentWindowSize = 'small';
+        addResetContent.style.transform = 'translateY(100%)';
+    }
+    else if (window.innerWidth >= 768 && currentWindowSize != 'medium') {
+        currentWindowSize = 'medium';
+        addResetContent.style.transform = 'translateY(0%)';
+    }
+    ;
+});
 //---------UI interaction---------------------
 //show add reset
 showAddReset.addEventListener('click', () => {
@@ -190,4 +244,8 @@ cancelReset.addEventListener('click', () => {
 //close empty popup
 emptyPopup.addEventListener('click', () => {
     toggleEmptyPopup();
+});
+//close money lest popup
+moneyLestPopup.addEventListener('click', () => {
+    toggleMoneyLestPopup();
 });

@@ -60,10 +60,6 @@ input[type=number] {
 }
 
 @media (min-width: 768px) { 
-    /* #add-reset{
-        background-color: #00090000;
-        transition: .3s ease-in;
-    } */
     #add-reset-content{
         bottom: 0;
         transform: translateY(0%);
@@ -79,6 +75,10 @@ input{
     @apply border border-green-900 bg-transparent w-[93%] h-12 float-left mb-2
     shadow-lg shadow-green-900/40 z-10
     focus:bg-green-700 focus:bg-opacity-10;
+}
+
+input{
+    @apply focus:outline-none;
 }
 
 input:after{
@@ -133,6 +133,8 @@ button.danger2:after{
 #cancel-reset:before,
 #cancel-reset:after,
 #empty-btn:before,
-#empty-btn:after{
+#empty-btn:after,
+#money-lest-btn:before,
+#money-lest-btn:after{
     @apply border-0 bg-transparent;
 }
