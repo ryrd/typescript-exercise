@@ -581,10 +581,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 1.25rem;
 }
 
-.mb-10 {
-  margin-bottom: 2.5rem;
-}
-
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -621,8 +617,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 3rem;
 }
 
-.h-28 {
-  height: 7rem;
+.h-\[116px\] {
+  height: 116px;
 }
 
 .h-1\/2 {
@@ -655,30 +651,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-\[120px\] {
   height: 120px;
-}
-
-.h-32 {
-  height: 8rem;
-}
-
-.h-\[28\] {
-  height: 28;
-}
-
-.h-\[116px\] {
-  height: 116px;
-}
-
-.h-\[114px\] {
-  height: 114px;
-}
-
-.h-\[115px\] {
-  height: 115px;
-}
-
-.h-\[117px\] {
-  height: 117px;
 }
 
 .min-h-\[360px\] {
@@ -899,10 +871,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pl-1 {
   padding-left: 0.25rem;
-}
-
-.pb-10 {
-  padding-bottom: 2.5rem;
 }
 
 .font-oswald {
@@ -1324,20 +1292,12 @@ button.danger2:after{
     height: 6px;
   }
 
-  .md\:h-32 {
-    height: 8rem;
+  .md\:h-\[132px\] {
+    height: 132px;
   }
 
   .md\:h-full {
     height: 100%;
-  }
-
-  .md\:h-36 {
-    height: 9rem;
-  }
-
-  .md\:h-\[132px\] {
-    height: 132px;
   }
 
   .md\:w-\[6px\] {

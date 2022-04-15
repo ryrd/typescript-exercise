@@ -65,7 +65,7 @@ const addPeriod: Function = (x: number): string => {
 }
 
 //-----------------money counter animation--------------------
-//counter animation function copied from Md. Taifuzzaman Bilash on codepen.io --with very little modification
+//counter animation function copied from Md. Taifuzzaman Bilash on codepen.io --with little modification
 const counterAnim: Function = (start: number, end: number): void => {
     let startTimestamp: any = null;
     const step = (timestamp: any) => {

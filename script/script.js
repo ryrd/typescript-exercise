@@ -47,7 +47,7 @@ const addPeriod = (x) => {
     return parts.join("");
 };
 //-----------------money counter animation--------------------
-//counter animation function copied from Md. Taifuzzaman Bilash on codepen.io --with very little modification
+//counter animation function copied from Md. Taifuzzaman Bilash on codepen.io --with little modification
 const counterAnim = (start, end) => {
     let startTimestamp = null;
     const step = (timestamp) => {
