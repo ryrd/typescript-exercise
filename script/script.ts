@@ -169,7 +169,7 @@ form.addEventListener('submit', e => {
                 document.querySelector('#m')!.classList.toggle('hidden');
                 todaySpentInput.value = '';
                 todaySpentInput.blur();
-            }, 700);
+            }, 1000);
         }
         else{
             toggleMoneyLestPopup();
