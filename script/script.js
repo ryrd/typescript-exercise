@@ -22,6 +22,11 @@ const resetBtn = document.querySelector('.danger2');
 const resetSavingBtn = document.querySelector('#reset-saving');
 const emptyPopup = document.querySelector('#empty-popup');
 const moneyLestPopup = document.querySelector('#money-lest-popup');
+const click = new Audio('../sfx/click.wav');
+const clickDown = new Audio('../sfx/clickDown.wav');
+const warning = new Audio('../sfx/warning.wav');
+const counterUp = new Audio('../sfx/counterup.wav');
+const counterDown = new Audio('../sfx/counterdown.wav');
 //---------------------------------------------
 //---------------------------------------------
 // -------------------reusable function---------------------
@@ -124,6 +129,7 @@ form.addEventListener('submit', e => {
             previousMoneyLeft = moneyLeft;
             moneyLeft -= parseInt(todaySpentInput.value);
             localStorage.setItem('money-left', moneyLeft.toString());
+            counterDown.play();
             counterAnim(previousMoneyLeft, moneyLeft);
             lastSpents.push(parseInt(todaySpentInput.value));
             localStorage.setItem('last-spents', JSON.stringify(lastSpents));
@@ -140,10 +146,12 @@ form.addEventListener('submit', e => {
             }, 1000);
         }
         else {
+            warning.play();
             toggleMoneyLestPopup();
         }
     }
     else {
+        warning.play();
         toggleEmptyPopup();
     }
     ;
@@ -155,6 +163,7 @@ incomeForm.addEventListener('submit', e => {
         previousMoneyLeft = moneyLeft;
         moneyLeft += parseInt(incomeInput.value);
         localStorage.setItem('money-left', moneyLeft.toString());
+        counterUp.play();
         counterAnim(previousMoneyLeft, moneyLeft);
         toggleAddReset();
         if (window.innerWidth < 768) {
@@ -165,6 +174,7 @@ incomeForm.addEventListener('submit', e => {
         incomeInput.blur();
     }
     else {
+        warning.play();
         toggleEmptyPopup();
     }
     ;
@@ -206,6 +216,7 @@ window.addEventListener('resize', () => {
 //---------UI interaction---------------------
 //show add reset
 showAddReset.addEventListener('click', () => {
+    click.play();
     toggleAddReset();
     addResetContent.style.transform = 'translateY(0%)';
     addReset.style.backgroundColor = '#00000055';
@@ -213,6 +224,7 @@ showAddReset.addEventListener('click', () => {
 //close add reset
 addReset.addEventListener('click', e => {
     if (e.target === e.currentTarget) {
+        clickDown.play();
         toggleAddReset();
         if (window.innerWidth < 768) {
             addResetContent.style.transform = 'translateY(100%)';
@@ -222,6 +234,7 @@ addReset.addEventListener('click', e => {
     ;
 });
 addMenuDown.addEventListener('click', () => {
+    clickDown.play();
     toggleAddReset();
     if (window.innerWidth < 768) {
         addResetContent.style.transform = 'translateY(100%)';
@@ -230,13 +243,16 @@ addMenuDown.addEventListener('click', () => {
 });
 //show reset pop up
 resetSavingBtn.addEventListener('click', () => {
+    warning.play();
     togglePopup();
     popup.style.opacity = '1';
 });
 //---------cancel and close reset pop up-------
 popup.addEventListener('click', e => {
-    if (e.target === e.currentTarget)
+    if (e.target === e.currentTarget) {
         togglePopup();
+    }
+    ;
 });
 cancelReset.addEventListener('click', () => {
     togglePopup();

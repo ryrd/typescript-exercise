@@ -32,10 +32,14 @@ const emptyPopup = document.querySelector('#empty-popup') as HTMLDivElement;
 
 const moneyLestPopup = document.querySelector('#money-lest-popup') as HTMLDivElement;
 
+const click = new Audio('../sfx/click.wav');
+const clickDown = new Audio('../sfx/clickDown.wav');
+const warning = new Audio('../sfx/warning.wav');
+const counterUp = new Audio('../sfx/counterup.wav');
+const counterDown = new Audio('../sfx/counterdown.wav');
 
 //---------------------------------------------
 //---------------------------------------------
-
 
 // -------------------reusable function---------------------
 const toggleAddReset :Function = (): void => {
@@ -154,6 +158,7 @@ form.addEventListener('submit', e => {
             previousMoneyLeft = moneyLeft;
             moneyLeft -= parseInt(todaySpentInput.value);
             localStorage.setItem('money-left', moneyLeft.toString());
+            counterDown.play();
             counterAnim(previousMoneyLeft, moneyLeft);
     
             lastSpents.push(parseInt(todaySpentInput.value));
@@ -172,9 +177,11 @@ form.addEventListener('submit', e => {
             }, 1000);
         }
         else{
+            warning.play();
             toggleMoneyLestPopup();
         }
     }else {
+        warning.play();
         toggleEmptyPopup();
     };
 });
@@ -186,6 +193,7 @@ incomeForm.addEventListener('submit', e => {
         previousMoneyLeft = moneyLeft;
         moneyLeft += parseInt(incomeInput.value);
         localStorage.setItem('money-left', moneyLeft.toString());
+        counterUp.play();
         counterAnim(previousMoneyLeft, moneyLeft);
         
         toggleAddReset();
@@ -197,6 +205,7 @@ incomeForm.addEventListener('submit', e => {
         incomeInput.value = '';
         incomeInput.blur();
     }else {
+        warning.play();
         toggleEmptyPopup();
     };
 });
@@ -204,12 +213,10 @@ incomeForm.addEventListener('submit', e => {
 //bottom to reset saving and close reset pop up
 resetBtn.addEventListener('click', () => {
     toggleAddReset();
-
     if(window.innerWidth < 768){
         addResetContent.style.transform = 'translateY(100%)';
         addReset.style.backgroundColor = '#00000000';
     }
-
     togglePopup();
 
     moneyLeft = 0;
@@ -245,6 +252,7 @@ window.addEventListener('resize', () => {
 
 //show add reset
 showAddReset.addEventListener('click', () => {
+    click.play();
     toggleAddReset();
     addResetContent.style.transform = 'translateY(0%)';
     addReset.style.backgroundColor = '#00000055';
@@ -253,6 +261,7 @@ showAddReset.addEventListener('click', () => {
 //close add reset
 addReset.addEventListener('click', e => {
     if(e.target === e.currentTarget) {
+        clickDown.play();
         toggleAddReset();
         if(window.innerWidth < 768){
             addResetContent.style.transform = 'translateY(100%)';
@@ -261,6 +270,7 @@ addReset.addEventListener('click', e => {
     };
 });
 addMenuDown.addEventListener('click', () => {
+    clickDown.play();
     toggleAddReset();
     if(window.innerWidth < 768){
         addResetContent.style.transform = 'translateY(100%)';
@@ -270,13 +280,16 @@ addMenuDown.addEventListener('click', () => {
 
 //show reset pop up
 resetSavingBtn.addEventListener('click', () => {
+    warning.play();
     togglePopup();
     popup.style.opacity = '1';
 }); 
 
 //---------cancel and close reset pop up-------
 popup.addEventListener('click', e => {
-    if(e.target === e.currentTarget) togglePopup();
+    if(e.target === e.currentTarget) {
+        togglePopup();
+    };
 });
 cancelReset.addEventListener('click', () => {
     togglePopup();

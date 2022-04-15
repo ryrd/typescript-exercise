@@ -1,11 +1,16 @@
-const staticCacheName = 'static-cache-v3';
+const staticCacheName = 'static-cache-v2';
 const assets = [
     '/',
     '/index.html',
     '/css/output.css',
+    '/script/script.js',
     '/font/oswald-light.ttf',
     '/font/sarpanch-bold.ttf',
-    '/script/script.js',
+    '/sfx/click.wav',
+    '/sfx/clickdown.wav',
+    '/sfx/counterup.wav',
+    '/sfx/counterdown.wav',
+    '/sfx/warning.wav'
 ];
 
 

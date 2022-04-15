@@ -74,12 +74,8 @@ input[type=number] {
 input{
     @apply border border-green-900 bg-transparent w-[93%] h-12 float-left mb-2
            shadow-lg shadow-green-900/40 z-10
-         focus:bg-green-700 focus:bg-opacity-10
+         focus:bg-green-700 focus:bg-opacity-10 focus:outline-none
            font-oswald;
-}
-
-input{
-    @apply focus:outline-none;
 }
 
 input:after{

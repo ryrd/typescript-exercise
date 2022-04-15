@@ -186,6 +186,7 @@
         }
 
         let deferredPrompt;
+        const sfx = new Audio('../sfx/click.wav');
         const install = document.getElementById('install');
 
         window.addEventListener('beforeinstallprompt', e => {
@@ -195,6 +196,7 @@
 
         //add click event listener to install button
         install.addEventListener('click', async () => {
+            sfx.play();
             if (deferredPrompt !== null) {
                 deferredPrompt.prompt();
                 const {outcome} = await deferredPrompt.userChoice;
