@@ -10,7 +10,8 @@ const assets = [
     '/sfx/clickdown.wav',
     '/sfx/counterup.wav',
     '/sfx/counterdown.wav',
-    '/sfx/warning.wav'
+    '/sfx/warning.wav',
+    '/sfx/key.wav',
 ];
 
 

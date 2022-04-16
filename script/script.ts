@@ -2,6 +2,7 @@
 let moneyLeft: number = 0;
 let lastSpents: number[] = [];
 let last3daysSpents: [number, number, number] = [0 , 0 , 0];
+let monthSpent: number = 0;
 
 let previousMoneyLeft : number;
 
@@ -13,6 +14,7 @@ const todaySpentInput = document.querySelector('#today-spent-input') as HTMLInpu
 
 const lastSpentList = document.querySelector('#today-spents') as HTMLUListElement;
 const last3daysSpentList = document.querySelector('#three-days-spents') as HTMLUListElement;
+const thisMonthSpent = document.querySelector('#this-month-spent') as HTMLDListElement;
 
 const showAddReset = document.querySelector('#show-add') as HTMLButtonElement;
 const addReset = document.querySelector('#add-reset') as HTMLDivElement;
@@ -85,16 +87,20 @@ const counterAnim: Function = (start: number, end: number): void => {
 
 const addNewSpent: Function = (spents: number[]) :void => {
     const newspentlist = spents.map(spent => {
-        return `<li class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1">${addPeriod(spent)}</li>`;
+        return `<li class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1 text-glow">${addPeriod(spent)}</li>`;
     });
-    lastSpentList.innerHTML = newspentlist.toString().replace(/,/g, "");
+    lastSpentList.innerHTML = newspentlist.join('');
 }
 
 const addthreeSpent: Function = (spents: number[]) :void => {
     const newspentlist = spents.map(spent => {
-        return `<li class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1">${addPeriod(spent)}</li>`;
+        return `<li class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1 text-glow">${addPeriod(spent)}</li>`;
     });
-    last3daysSpentList.innerHTML = newspentlist.toString().replace(/,/g, "");
+    last3daysSpentList.innerHTML = newspentlist.join('');
+}
+
+const addMonthSpent: Function = (spent: number) :void => {
+    thisMonthSpent.innerHTML = `<li class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1 text-glow">${addPeriod(spent)}</li>`;
 }
 //--------------------------------------------------
 //--------------------------------------------------
@@ -123,17 +129,30 @@ if(localStorage.getItem('money-left') !== null){
 }
 
 //-----------------check today date-----------------
-const today = new Date();
+const today = new Date('2-1-2022');
 
 if(localStorage.getItem('current-date') !== null) {
     if(`${today.getDate()}-${today.getMonth()}` !== localStorage.getItem('current-date')){
-        //change last 3 days spents
-        last3daysSpents[2] = last3daysSpents[1];
-        last3daysSpents[1] = last3daysSpents[0];
-        last3daysSpents[0] = lastSpents.length ? lastSpents.reduce((total, eachSpent) => total+eachSpent) : 0;
+        
+        if(`${today.getMonth()}` !== localStorage.getItem('this-month')){
+            localStorage.setItem('date-now', `${today.getDate()}`);
+            if (lastSpents.length) {
+                last3daysSpents[2] = last3daysSpents[1];
+                last3daysSpents[1] = last3daysSpents[0];
+                last3daysSpents[0] = lastSpents.reduce((total, eachSpent) => total+eachSpent);
+            }
+        }
+
+        if(`${today.getDate()}` !== localStorage.getItem('date-now')){
+            //change last 3 days spents
+            last3daysSpents[2] = last3daysSpents[1];
+            last3daysSpents[1] = last3daysSpents[0];
+            last3daysSpents[0] = lastSpents.length ? lastSpents.reduce((total, eachSpent) => total+eachSpent) : 0;
+        }
 
         //change current date localstorage
         localStorage.setItem('current-date', `${today.getDate()}-${today.getMonth()}`);
+        localStorage.setItem('date-now', `${today.getDate()}`);
 
         //change last 3 days localstorage
         localStorage.setItem('last-3days-spent', JSON.stringify(last3daysSpents));
@@ -145,10 +164,36 @@ if(localStorage.getItem('current-date') !== null) {
 }
 else{
     localStorage.setItem('current-date', `${today.getDate()}-${today.getMonth()}`);
+    localStorage.setItem('date-now', `${today.getDate()}`);
+}
+
+if(localStorage.getItem('this-month') !== null){
+    if(`${today.getMonth()}` !== localStorage.getItem('this-month')){
+        monthSpent = 0;
+        thisMonthSpent.innerHTML = '';
+        localStorage.setItem('this-month', `${today.getMonth()}`);
+        localStorage.removeItem('month-spents');
+    }
+    else if(localStorage.getItem('month-spents') !== null){
+        monthSpent = parseInt(localStorage.getItem('month-spents')!);
+        addMonthSpent(monthSpent);
+    }
+}
+else{
+    localStorage.setItem('this-month', `${today.getMonth()}`);
 }
 
 //-----------------------------------------------------
 //-----------------------------------------------------
+
+todaySpentInput.addEventListener('click', () => {
+    const tap = new Audio('../sfx/key.wav');
+    tap.play();
+});
+todaySpentInput.addEventListener('input', () => {
+    const tap = new Audio('../sfx/key.wav');
+    tap.play();
+});
 
 //form to input new spent
 form.addEventListener('submit', e => {
@@ -160,6 +205,11 @@ form.addEventListener('submit', e => {
             localStorage.setItem('money-left', moneyLeft.toString());
             counterDown.play();
             counterAnim(previousMoneyLeft, moneyLeft);
+            
+            monthSpent += parseInt(todaySpentInput.value);
+            localStorage.setItem('month-spents', monthSpent.toString());
+            addMonthSpent(monthSpent);
+
     
             lastSpents.push(parseInt(todaySpentInput.value));
             localStorage.setItem('last-spents', JSON.stringify(lastSpents));
@@ -208,6 +258,14 @@ incomeForm.addEventListener('submit', e => {
         warning.play();
         toggleEmptyPopup();
     };
+});
+incomeInput.addEventListener('click', ()=> {
+    const tap = new Audio('../sfx/key.wav');
+    tap.play();
+});
+incomeInput.addEventListener('input', ()=> {
+    const tap = new Audio('../sfx/key.wav');
+    tap.play();
 });
 
 //bottom to reset saving and close reset pop up

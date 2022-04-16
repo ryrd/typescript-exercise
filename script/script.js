@@ -3,6 +3,7 @@
 let moneyLeft = 0;
 let lastSpents = [];
 let last3daysSpents = [0, 0, 0];
+let monthSpent = 0;
 let previousMoneyLeft;
 //---------------------DOM selections----------------
 const mainText = document.querySelector('#main-text');
@@ -10,6 +11,7 @@ const form = document.querySelector('#today-spent-form');
 const todaySpentInput = document.querySelector('#today-spent-input');
 const lastSpentList = document.querySelector('#today-spents');
 const last3daysSpentList = document.querySelector('#three-days-spents');
+const thisMonthSpent = document.querySelector('#this-month-spent');
 const showAddReset = document.querySelector('#show-add');
 const addReset = document.querySelector('#add-reset');
 const addResetContent = document.querySelector('#add-reset-content');
@@ -68,15 +70,18 @@ const counterAnim = (start, end) => {
 };
 const addNewSpent = (spents) => {
     const newspentlist = spents.map(spent => {
-        return `<li class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1">${addPeriod(spent)}</li>`;
+        return `<li class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1 text-glow">${addPeriod(spent)}</li>`;
     });
-    lastSpentList.innerHTML = newspentlist.toString().replace(/,/g, "");
+    lastSpentList.innerHTML = newspentlist.join('');
 };
 const addthreeSpent = (spents) => {
     const newspentlist = spents.map(spent => {
-        return `<li class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1">${addPeriod(spent)}</li>`;
+        return `<li class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1 text-glow">${addPeriod(spent)}</li>`;
     });
-    last3daysSpentList.innerHTML = newspentlist.toString().replace(/,/g, "");
+    last3daysSpentList.innerHTML = newspentlist.join('');
+};
+const addMonthSpent = (spent) => {
+    thisMonthSpent.innerHTML = `<li class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1 text-glow">${addPeriod(spent)}</li>`;
 };
 //--------------------------------------------------
 //--------------------------------------------------
@@ -100,15 +105,26 @@ if (localStorage.getItem('money-left') !== null) {
     moneyLeft = parseInt(localStorage.getItem('money-left'));
 }
 //-----------------check today date-----------------
-const today = new Date();
+const today = new Date('2-1-2022');
 if (localStorage.getItem('current-date') !== null) {
     if (`${today.getDate()}-${today.getMonth()}` !== localStorage.getItem('current-date')) {
-        //change last 3 days spents
-        last3daysSpents[2] = last3daysSpents[1];
-        last3daysSpents[1] = last3daysSpents[0];
-        last3daysSpents[0] = lastSpents.length ? lastSpents.reduce((total, eachSpent) => total + eachSpent) : 0;
+        if (`${today.getMonth()}` !== localStorage.getItem('this-month')) {
+            localStorage.setItem('date-now', `${today.getDate()}`);
+            if (lastSpents.length) {
+                last3daysSpents[2] = last3daysSpents[1];
+                last3daysSpents[1] = last3daysSpents[0];
+                last3daysSpents[0] = lastSpents.reduce((total, eachSpent) => total + eachSpent);
+            }
+        }
+        if (`${today.getDate()}` !== localStorage.getItem('date-now')) {
+            //change last 3 days spents
+            last3daysSpents[2] = last3daysSpents[1];
+            last3daysSpents[1] = last3daysSpents[0];
+            last3daysSpents[0] = lastSpents.length ? lastSpents.reduce((total, eachSpent) => total + eachSpent) : 0;
+        }
         //change current date localstorage
         localStorage.setItem('current-date', `${today.getDate()}-${today.getMonth()}`);
+        localStorage.setItem('date-now', `${today.getDate()}`);
         //change last 3 days localstorage
         localStorage.setItem('last-3days-spent', JSON.stringify(last3daysSpents));
         //delete yesterday lastSpents
@@ -118,9 +134,33 @@ if (localStorage.getItem('current-date') !== null) {
 }
 else {
     localStorage.setItem('current-date', `${today.getDate()}-${today.getMonth()}`);
+    localStorage.setItem('date-now', `${today.getDate()}`);
+}
+if (localStorage.getItem('this-month') !== null) {
+    if (`${today.getMonth()}` !== localStorage.getItem('this-month')) {
+        monthSpent = 0;
+        thisMonthSpent.innerHTML = '';
+        localStorage.setItem('this-month', `${today.getMonth()}`);
+        localStorage.removeItem('month-spents');
+    }
+    else if (localStorage.getItem('month-spents') !== null) {
+        monthSpent = parseInt(localStorage.getItem('month-spents'));
+        addMonthSpent(monthSpent);
+    }
+}
+else {
+    localStorage.setItem('this-month', `${today.getMonth()}`);
 }
 //-----------------------------------------------------
 //-----------------------------------------------------
+todaySpentInput.addEventListener('click', () => {
+    const tap = new Audio('../sfx/key.wav');
+    tap.play();
+});
+todaySpentInput.addEventListener('input', () => {
+    const tap = new Audio('../sfx/key.wav');
+    tap.play();
+});
 //form to input new spent
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -131,6 +171,9 @@ form.addEventListener('submit', e => {
             localStorage.setItem('money-left', moneyLeft.toString());
             counterDown.play();
             counterAnim(previousMoneyLeft, moneyLeft);
+            monthSpent += parseInt(todaySpentInput.value);
+            localStorage.setItem('month-spents', monthSpent.toString());
+            addMonthSpent(monthSpent);
             lastSpents.push(parseInt(todaySpentInput.value));
             localStorage.setItem('last-spents', JSON.stringify(lastSpents));
             addNewSpent(lastSpents);
@@ -178,6 +221,14 @@ incomeForm.addEventListener('submit', e => {
         toggleEmptyPopup();
     }
     ;
+});
+incomeInput.addEventListener('click', () => {
+    const tap = new Audio('../sfx/key.wav');
+    tap.play();
+});
+incomeInput.addEventListener('input', () => {
+    const tap = new Audio('../sfx/key.wav');
+    tap.play();
 });
 //bottom to reset saving and close reset pop up
 resetBtn.addEventListener('click', () => {

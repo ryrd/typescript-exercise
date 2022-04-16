@@ -514,6 +514,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   left: -20%;
 }
 
+.-bottom-10 {
+  bottom: -2.5rem;
+}
+
+.right-10 {
+  right: 2.5rem;
+}
+
 .top-5 {
   top: 1.25rem;
 }
@@ -550,6 +558,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   z-index: 20;
 }
 
+.row-span-5 {
+  grid-row: span 5 / span 5;
+}
+
+.row-span-3 {
+  grid-row: span 3 / span 3;
+}
+
+.row-span-1 {
+  grid-row: span 1 / span 1;
+}
+
 .float-right {
   float: right;
 }
@@ -581,10 +601,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 1.25rem;
 }
 
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
 .block {
   display: block;
 }
@@ -595,6 +611,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .flex {
   display: flex;
+}
+
+.grid {
+  display: grid;
 }
 
 .hidden {
@@ -617,8 +637,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 3rem;
 }
 
-.h-\[116px\] {
-  height: 116px;
+.h-\[136px\] {
+  height: 136px;
 }
 
 .h-1\/2 {
@@ -685,10 +705,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 100%;
 }
 
-.w-\[40\%\] {
-  width: 40%;
-}
-
 .w-\[80\%\] {
   width: 80%;
 }
@@ -703,6 +719,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-\[180px\] {
   width: 180px;
+}
+
+.w-\[40\%\] {
+  width: 40%;
 }
 
 .w-\[150px\] {
@@ -735,8 +755,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   cursor: pointer;
 }
 
-.flex-row {
-  flex-direction: row;
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-rows-5 {
+  grid-template-rows: repeat(5, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -755,8 +779,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: center;
 }
 
-.justify-between {
-  justify-content: space-between;
+.gap-5 {
+  gap: 1.25rem;
 }
 
 .overflow-hidden {
@@ -834,13 +858,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: #00000088;
 }
 
-.bg-transparent {
-  background-color: transparent;
-}
-
 .bg-red-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(127 29 29 / var(--tw-bg-opacity));
+}
+
+.bg-transparent {
+  background-color: transparent;
 }
 
 .p-2 {
@@ -905,12 +929,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
-.opacity-70 {
-  opacity: 0.7;
-}
-
-.opacity-50 {
-  opacity: 0.5;
+.opacity-80 {
+  opacity: 0.8;
 }
 
 .opacity-0 {
@@ -933,8 +953,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.blur-\[84px\] {
-  --tw-blur: blur(84px);
+.blur-\[100px\] {
+  --tw-blur: blur(100px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
@@ -1005,6 +1025,12 @@ input[type=number] {
   box-shadow:0 0 1px #ffffff55,
                 0 0 15px #003813,
                 0 0 25px #003813;
+}
+
+.text-glow{
+  text-shadow:0 0 1px #ffffff55,
+               0 0 5px #ffffff55,
+               0 0 10px #ffffff33;
 }
 
 #add-reset{
@@ -1285,6 +1311,10 @@ button.danger2:after{
     display: block;
   }
 
+  .md\:grid {
+    display: grid;
+  }
+
   .md\:hidden {
     display: none;
   }
@@ -1319,6 +1349,10 @@ button.danger2:after{
 
   .md\:max-w-none {
     max-width: none;
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .md\:border-0 {

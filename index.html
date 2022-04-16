@@ -19,7 +19,7 @@
     <div class="absolute bottom-0 left-0 w-1/4 h-1 md:h-[6px] bg-green-900" style="clip-path: polygon(0 0, 48% 0, 100% 99%, 0 100%, 0% 80%, 0% 20%);"></div>
     <div class="absolute bottom-0 left-0 h-1/4 w-1 md:w-[6px] bg-green-900" style="clip-path: polygon(0 0, 0 0, 100% 18%, 100% 80%, 100% 99%, 0 100%, 0% 80%, 0% 20%);"></div>
     
-    <svg class="absolute -top-[10%] -left-[20%] blur-[164px] -z-10 opacity-70" width="336" height="281" viewBox="0 0 336 281" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="absolute -top-[10%] -left-[20%] blur-[164px] -z-10 " width="336" height="281" viewBox="0 0 336 281" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M244.662 232.265C189.162 262.265 130.162 298.265 51 271.539C-25.6926 218.546 -16.0557 120.582 92.5139 55.4089C173.318 6.90322 261.89 -25.3107 310.667 26.3466C359.445 78.0039 334.957 158.527 244.662 232.265Z" fill="url(#paint0_linear_15_61)"/>
         <defs>
         <linearGradient id="paint0_linear_15_61" x1="216.74" y1="-21.4328" x2="251.892" y2="248.493" gradientUnits="userSpaceOnUse">
@@ -29,7 +29,7 @@
         </defs>
     </svg>
 
-    <svg class="absolute bottom-0 right-0 blur-[84px] -z-10 w-36 opacity-50" width="336" height="281" viewBox="0 0 336 281" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="absolute -bottom-10 right-10 blur-[100px] -z-10 w-36 opacity-80" width="336" height="281" viewBox="0 0 336 281" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M244.662 232.265C189.162 262.265 130.162 298.265 51 271.539C-25.6926 218.546 -16.0557 120.582 92.5139 55.4089C173.318 6.90322 261.89 -25.3107 310.667 26.3466C359.445 78.0039 334.957 158.527 244.662 232.265Z" fill="url(#paint0_linear_15_61)"/>
         <defs>
         <linearGradient id="paint0_linear_15_61" x1="216.74" y1="-21.4328" x2="251.892" y2="248.493" gradientUnits="userSpaceOnUse">
@@ -42,41 +42,47 @@
     <button id="install" class="hidden absolute top-5 right-5 font-oswald px-4 text-sm text-white bg-green-900">Install</button>
 
     <div class="w-3/4 max-w-xl md:max-w-none md:absolute md:right-16 md:w-[55%]">
-        <p class="font-oswald font-extralight">money left :</p>
+        <p class="font-oswald font-extralight text-glow">money left :</p>
         <h1 class="text-5xl md:text-7xl xl:text-8xl font-sarpanch" id="main-text">0</h1>
         
         <div class="line decorator"></div>
 
-        <p class="font-oswald font-extralight pb-2">new spent :</p>
+        <p class="font-oswald font-extralight pb-2 text-glow">new spent :</p>
         <form id="today-spent-form">
             <div class="flex">
                 <div class="decorator flex-[1] w-3 bg-green-700 h-12 mr-1 border border-green-700 shadow-lg shadow-green-900/50">&nbsp;</div>
                 <input type="number" min="0" class="flex-[22] p-2 z-0" id="today-spent-input"/>
             </div>
             <div class="flex justify-end items-center">
-                <button type="submit" class="font-oswald px-5 mb-5">add spent</button>
+                <button type="submit" class="font-oswald px-5 mb-5 text-glow">add spent</button>
             </div>
         </form>
 
-        <div class="line decorator"></div>
+        <div class="line decorator" style="margin-top: 10px !important;"></div>
 
-        <div class="flex flex-row justify-between w-full font-oswald text-sm mb-4 md:mb-0 md:text-xl h-[116px] md:h-[132px]">
-            <div class="w-[40%] overflow-y-scroll">
-                <h6 class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1">today spent :</h6>
+        <div class="grid grid-cols-2 md:grid-cols-3 grid-rows-5 gap-5 w-full font-oswald text-sm mb-5 md:mb-0 md:text-xl h-[136px] md:h-[132px]">
+            <div class="overflow-y-scroll row-span-5">
+                <h6 class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1 text-glow">today spent :</h6>
                 <ul class="w-[80%] float-right" id="today-spents">
                     
                 </ul>
             </div>
-            <div class="w-[40%]">
-                <h6 class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1">last 3 days spent :</h6>
+            <div class="row-span-3">
+                <h6 class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1 text-glow">last 3 days spent :</h6>
                 <ul class="w-[80%] float-right" id="three-days-spents">
                     
+                </ul>
+            </div>
+            <div class="row-span-1">
+                <h6 class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1 text-glow">this month spent :</h6>
+                <ul class="w-[80%] float-right" id="this-month-spent">
+
                 </ul>
             </div>
         </div>
 
         <button class="block float-left font-oswald px-5 z-0 md:hidden" id="show-add">
-            add/reset 
+            <span class="text-glow">add/reset</span>
             <svg class="inline-block" width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.61788 0L12.849 8.25H0.386724L6.61788 0Z" fill="#E9E9E9" fill-opacity="0.97"/>
             </svg>
@@ -101,7 +107,7 @@
                 <form id="income-form">
                     <div class="flex">
                         <div class="decorator flex-[1] w-3 bg-green-700 h-12 float-left inline-block mr-1 border border-green-700 shadow-lg shadow-green-900/50">&nbsp;</div>
-                        <input type="number" class="flex-[22] inline-block" id="income-input"/>
+                        <input type="number" class="flex-[22] p-2 inline-block" id="income-input"/>
                     </div>
                     <div class="flex justify-end items-center">
                         <button type="submit" class="font-oswald px-5 mb-5">add</button>
@@ -116,23 +122,23 @@
     </div>
 
     <div id="confirm-popup" class="hidden opacity-0 absolute h-screen w-screen justify-center items-center bg-[#00000088] z-20">
-        <div class="flex relative w-[180px] h-[150px] justify-center items-center flex-col border border-green-900 bg-black">
+        <div class="flex relative w-[180px] h-[150px] justify-center items-center flex-col border border-red-900 bg-black">
 
             <p class="font-oswald">are you sure?</p>
             <div class="flex items-center justify-center">
                 <button class="border-0 my-2 p-2 block font-oswald cursor-pointer" id="cancel-reset">cancel</button>
                 <button id="delete-saving" class="danger2 border border-red-900 my-1 p-1 font-oswald px-4
-                             hover:bg-red-900 hover:bg-opacity-10 
-                               transition ease-in duration-200">
+                                                hover:bg-red-900 hover:bg-opacity-10 
+                                                  transition ease-in duration-200">
                     reset
                 </button>
             </div>
 
-            <div class="absolute top-0 right-0 w-[40%] h-1 bg-green-900" style="clip-path: polygon(20% 0%, 100% 0, 100% 20%, 100% 80%, 100% 100%, 39% 100%, 0 0);"></div>
-            <div class="absolute top-0 right-0 h-[40%] w-1 bg-green-900" style="clip-path: polygon(20% 0%, 80% 0%, 100% 0, 100% 80%, 100% 100%, 0% 80%, 0 0);"></div>
+            <div class="absolute top-0 right-0 w-[40%] h-1 bg-red-900" style="clip-path: polygon(20% 0%, 100% 0, 100% 20%, 100% 80%, 100% 100%, 39% 100%, 0 0);"></div>
+            <div class="absolute top-0 right-0 h-[40%] w-1 bg-red-900" style="clip-path: polygon(20% 0%, 80% 0%, 100% 0, 100% 80%, 100% 100%, 0% 80%, 0 0);"></div>
 
-            <div class="absolute bottom-0 left-0 w-[40%] h-1 bg-green-900" style="clip-path: polygon(0 0, 48% 0, 100% 99%, 0 100%, 0% 80%, 0% 20%);"></div>
-            <div class="absolute bottom-0 left-0 h-[40%] w-1 bg-green-900" style="clip-path: polygon(0 0, 0 0, 100% 18%, 100% 80%, 100% 99%, 0 100%, 0% 80%, 0% 20%);"></div>
+            <div class="absolute bottom-0 left-0 w-[40%] h-1 bg-red-900" style="clip-path: polygon(0 0, 48% 0, 100% 99%, 0 100%, 0% 80%, 0% 20%);"></div>
+            <div class="absolute bottom-0 left-0 h-[40%] w-1 bg-red-900" style="clip-path: polygon(0 0, 0 0, 100% 18%, 100% 80%, 100% 99%, 0 100%, 0% 80%, 0% 20%);"></div>
         </div>
     </div>
 
