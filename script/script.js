@@ -7,6 +7,7 @@ let monthSpent = 0;
 let previousMoneyLeft;
 //---------------------DOM selections----------------
 const mainText = document.querySelector('#main-text');
+const refresh = document.querySelector('#refresh');
 const form = document.querySelector('#today-spent-form');
 const todaySpentInput = document.querySelector('#today-spent-input');
 const lastSpentList = document.querySelector('#today-spents');
@@ -70,18 +71,18 @@ const counterAnim = (start, end) => {
 };
 const addNewSpent = (spents) => {
     const newspentlist = spents.map(spent => {
-        return `<li class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1 text-glow">${addPeriod(spent)}</li>`;
+        return `<li class="border border-white border-opacity-25 border-l-0 border-t-0 border-r-0 pl-1 text-glow">${addPeriod(spent)}</li>`;
     });
     lastSpentList.innerHTML = newspentlist.join('');
 };
 const addthreeSpent = (spents) => {
     const newspentlist = spents.map(spent => {
-        return `<li class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1 text-glow">${addPeriod(spent)}</li>`;
+        return `<li class="border border-white border-opacity-25 border-l-0 border-t-0 border-r-0 pl-1 text-glow">${addPeriod(spent)}</li>`;
     });
     last3daysSpentList.innerHTML = newspentlist.join('');
 };
 const addMonthSpent = (spent) => {
-    thisMonthSpent.innerHTML = `<li class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1 text-glow">${addPeriod(spent)}</li>`;
+    thisMonthSpent.innerHTML = `<li class="border border-white border-opacity-25 border-l-0 border-t-0 border-r-0 pl-1 text-glow">${addPeriod(spent)}</li>`;
 };
 //--------------------------------------------------
 //--------------------------------------------------
@@ -105,7 +106,7 @@ if (localStorage.getItem('money-left') !== null) {
     moneyLeft = parseInt(localStorage.getItem('money-left'));
 }
 //-----------------check today date-----------------
-const today = new Date('2-1-2022');
+const today = new Date();
 if (localStorage.getItem('current-date') !== null) {
     if (`${today.getDate()}-${today.getMonth()}` !== localStorage.getItem('current-date')) {
         if (`${today.getMonth()}` !== localStorage.getItem('this-month')) {
@@ -265,6 +266,9 @@ window.addEventListener('resize', () => {
     ;
 });
 //---------UI interaction---------------------
+refresh.addEventListener('click', () => {
+    location.reload();
+});
 //show add reset
 showAddReset.addEventListener('click', () => {
     click.play();

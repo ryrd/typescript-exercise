@@ -5,7 +5,7 @@ module.exports = {
       fontFamily: {
         sarpanch: ['sarpanch'],
         oswald: ['oswald'],
-      }
+      },
     },
   },
   plugins: [],

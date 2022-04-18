@@ -51,9 +51,9 @@ input[type=number] {
 }
 
 .text-glow{
-    text-shadow:0 0 1px #ffffff55,
-               0 0 5px #ffffff55,
-               0 0 10px #ffffff33;
+    text-shadow:0 0 5px #ffffff99,
+               0 0 10px #ffffff55,
+               0 0 20px #ffffff55;
 }
 #add-reset{
     background-color: #00090000;
@@ -63,6 +63,11 @@ input[type=number] {
     bottom: 0;
     transform: translateY(100%);
     transition: .4s cubic-bezier(0,.4,.04,.98);
+    box-shadow:inset 0 0 10px #00381399,
+                inset 0 0 20px #00381377,
+                inset 0 0 40px #00381355,
+                inset 0 0 80px #00381333,
+                inset 0 0 160px #00381311;
 }
 
 @media (min-width: 768px) { 
@@ -77,11 +82,26 @@ input[type=number] {
     @apply bg-green-900 h-[2px] w-full my-5 shadow-lg shadow-green-500/50 z-10;
 }
 
+.line{
+    box-shadow:0 0 2px #003813,
+                0 0 10px #003813,
+                0 0 20px #003813,
+                0 0 30px #003813;
+}
+
 input{
-    @apply border border-green-900 bg-transparent w-[93%] h-12 float-left mb-2
-           shadow-lg shadow-green-900/40 z-10
+    @apply border border-green-900 bg-transparent w-[93%] h-12 float-left mb-2 z-10
          focus:bg-green-700 focus:bg-opacity-10 focus:outline-none
            font-oswald;
+}
+
+input{
+    box-shadow: 0 0 2px #00381333,
+                0 0 10px #00381355,
+                0 0 20px #00381399,
+                inset 0 0 2px #00381333,
+                inset 0 0 10px #00381355,
+                inset 0 0 20px #00381399;
 }
 
 input:after{
@@ -93,7 +113,8 @@ input:after{
 button{
     @apply relative border border-green-900 my-2 
          hover:bg-green-900 hover:bg-opacity-20 
-           transition ease-in duration-200 p-2;
+           transition ease-in duration-200 p-2
+           active:bg-green-900 active:bg-opacity-20;
 }
 
 button:before{
@@ -129,9 +150,40 @@ button.danger2:after{
             border border-red-900 border-y-0 border-l-0;
 }
 
+button{
+    clip-path: polygon(87% 0%, 100% 34%, 100% 100%, 13% 100%, 0% 67%, 0 0);
+    box-shadow: inset 0 0 2px #003813,
+                inset 0 0 10px #003813,
+                inset 0 0 20px #00381333;
+}
+
+button.danger,
+button.danger2{
+    clip-path: polygon(87% 0%, 100% 34%, 100% 100%, 13% 100%, 0% 67%, 0 0);
+    box-shadow: inset 0 0 2px rgb(127, 29, 29),
+                inset 0 0 10px rgba(127, 29, 29, 7),
+                inset 0 0 10px rgba(127, 29, 29, .4);
+}
+
+#empty-btn,
+#money-lest-btn{
+    background: none;
+    box-shadow: none;
+}
+
+#confirm-popup > div,
+#empty-popup div{
+    box-shadow: inset 0 0 2px rgb(127, 29, 29),
+                inset 0 0 10px rgba(127, 29, 29, 7),
+                inset 0 0 10px rgba(127, 29, 29, .4);
+}
+
 #empty-btn,
 #cancel-reset{
     @apply hover:bg-transparent;
+}
+#cancel-reset{
+    box-shadow: none;
 }
 #cancel-reset:before,
 #cancel-reset:after,

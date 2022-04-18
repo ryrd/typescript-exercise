@@ -506,20 +506,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   left: 0px;
 }
 
-.-top-\[10\%\] {
-  top: -10%;
+.-top-10 {
+  top: -2.5rem;
 }
 
-.-left-\[20\%\] {
-  left: -20%;
+.top-6 {
+  top: 1.5rem;
 }
 
-.-bottom-10 {
-  bottom: -2.5rem;
-}
-
-.right-10 {
-  right: 2.5rem;
+.left-6 {
+  left: 1.5rem;
 }
 
 .top-5 {
@@ -544,6 +540,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .top-3 {
   top: 0.75rem;
+}
+
+.-z-20 {
+  z-index: -20;
 }
 
 .-z-10 {
@@ -625,12 +625,24 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100vh;
 }
 
-.h-1 {
-  height: 0.25rem;
+.h-\[3px\] {
+  height: 3px;
 }
 
 .h-1\/4 {
   height: 25%;
+}
+
+.h-\[350px\] {
+  height: 350px;
+}
+
+.h-\[270px\] {
+  height: 270px;
+}
+
+.h-4 {
+  height: 1rem;
 }
 
 .h-12 {
@@ -661,6 +673,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 150px;
 }
 
+.h-1 {
+  height: 0.25rem;
+}
+
 .h-\[40\%\] {
   height: 40%;
 }
@@ -685,12 +701,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 25%;
 }
 
-.w-1 {
-  width: 0.25rem;
+.w-\[3px\] {
+  width: 3px;
 }
 
-.w-36 {
-  width: 9rem;
+.w-\[260px\] {
+  width: 260px;
+}
+
+.w-\[300px\] {
+  width: 300px;
+}
+
+.w-6 {
+  width: 1.5rem;
 }
 
 .w-3\/4 {
@@ -713,16 +737,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 1px;
 }
 
-.w-6 {
-  width: 1.5rem;
-}
-
 .w-\[180px\] {
   width: 180px;
 }
 
 .w-\[40\%\] {
   width: 40%;
+}
+
+.w-1 {
+  width: 0.25rem;
 }
 
 .w-\[150px\] {
@@ -835,8 +859,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(127 29 29 / var(--tw-border-opacity));
 }
 
-.border-opacity-40 {
-  --tw-border-opacity: 0.4;
+.border-opacity-25 {
+  --tw-border-opacity: 0.25;
 }
 
 .bg-black {
@@ -929,10 +953,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
-.opacity-80 {
-  opacity: 0.8;
-}
-
 .opacity-0 {
   opacity: 0;
 }
@@ -948,13 +968,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow: var(--tw-shadow-colored);
 }
 
-.blur-\[164px\] {
-  --tw-blur: blur(164px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.blur-\[100px\] {
-  --tw-blur: blur(100px);
+.blur-\[130px\] {
+  --tw-blur: blur(130px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
@@ -1028,9 +1043,9 @@ input[type=number] {
 }
 
 .text-glow{
-  text-shadow:0 0 1px #ffffff55,
-               0 0 5px #ffffff55,
-               0 0 10px #ffffff33;
+  text-shadow:0 0 5px #ffffff99,
+               0 0 10px #ffffff55,
+               0 0 20px #ffffff55;
 }
 
 #add-reset{
@@ -1042,6 +1057,11 @@ input[type=number] {
   bottom: 0;
   transform: translateY(100%);
   transition: .4s cubic-bezier(0,.4,.04,.98);
+  box-shadow:inset 0 0 10px #00381399,
+                inset 0 0 20px #00381377,
+                inset 0 0 40px #00381355,
+                inset 0 0 80px #00381333,
+                inset 0 0 160px #00381311;
 }
 
 @media (min-width: 768px) {
@@ -1066,6 +1086,10 @@ input[type=number] {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   --tw-shadow-color: rgb(34 197 94 / 0.5);
   --tw-shadow: var(--tw-shadow-colored);
+  box-shadow:0 0 2px #003813,
+                0 0 10px #003813,
+                0 0 20px #003813,
+                0 0 30px #003813;
 }
 
 input {
@@ -1079,11 +1103,6 @@ input {
   border-color: rgb(20 83 45 / var(--tw-border-opacity));
   background-color: transparent;
   font-family: oswald;
-  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  --tw-shadow-color: rgb(20 83 45 / 0.4);
-  --tw-shadow: var(--tw-shadow-colored);
 }
 
 input:focus {
@@ -1091,6 +1110,15 @@ input:focus {
   --tw-bg-opacity: 0.1;
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+input{
+  box-shadow: 0 0 2px #00381333,
+                0 0 10px #00381355,
+                0 0 20px #00381399,
+                inset 0 0 2px #00381333,
+                inset 0 0 10px #00381355,
+                inset 0 0 20px #00381399;
 }
 
 input:after{
@@ -1131,6 +1159,11 @@ button {
 }
 
 button:hover {
+  background-color: rgb(20 83 45 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.2;
+}
+
+button:active {
   background-color: rgb(20 83 45 / var(--tw-bg-opacity));
   --tw-bg-opacity: 0.2;
 }
@@ -1248,8 +1281,42 @@ button.danger2:after{
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+button{
+  -webkit-clip-path: polygon(87% 0%, 100% 34%, 100% 100%, 13% 100%, 0% 67%, 0 0);
+          clip-path: polygon(87% 0%, 100% 34%, 100% 100%, 13% 100%, 0% 67%, 0 0);
+  box-shadow: inset 0 0 2px #003813,
+                inset 0 0 10px #003813,
+                inset 0 0 20px #00381333;
+}
+
+button.danger,
+button.danger2{
+  -webkit-clip-path: polygon(87% 0%, 100% 34%, 100% 100%, 13% 100%, 0% 67%, 0 0);
+          clip-path: polygon(87% 0%, 100% 34%, 100% 100%, 13% 100%, 0% 67%, 0 0);
+  box-shadow: inset 0 0 2px rgb(127, 29, 29),
+                inset 0 0 10px rgba(127, 29, 29, 7),
+                inset 0 0 10px rgba(127, 29, 29, .4);
+}
+
+#empty-btn,
+#money-lest-btn{
+  background: none;
+  box-shadow: none;
+}
+
+#confirm-popup > div,
+#empty-popup div{
+  box-shadow: inset 0 0 2px rgb(127, 29, 29),
+                inset 0 0 10px rgba(127, 29, 29, 7),
+                inset 0 0 10px rgba(127, 29, 29, .4);
+}
+
 #empty-btn:hover, #cancel-reset:hover {
   background-color: transparent;
+}
+
+#cancel-reset{
+  box-shadow: none;
 }
 
 #cancel-reset:before, #cancel-reset:after, #empty-btn:before, #empty-btn:after, #money-lest-btn:before, #money-lest-btn:after {
@@ -1291,6 +1358,10 @@ button.danger2:after{
     position: absolute;
   }
 
+  .md\:-left-\[10\%\] {
+    left: -10%;
+  }
+
   .md\:right-16 {
     right: 4rem;
   }
@@ -1311,10 +1382,6 @@ button.danger2:after{
     display: block;
   }
 
-  .md\:grid {
-    display: grid;
-  }
-
   .md\:hidden {
     display: none;
   }
@@ -1333,6 +1400,14 @@ button.danger2:after{
 
   .md\:w-\[6px\] {
     width: 6px;
+  }
+
+  .md\:w-\[600px\] {
+    width: 600px;
+  }
+
+  .md\:w-\[900px\] {
+    width: 900px;
   }
 
   .md\:w-\[55\%\] {
@@ -1359,6 +1434,10 @@ button.danger2:after{
     border-width: 0px;
   }
 
+  .md\:bg-transparent {
+    background-color: transparent;
+  }
+
   .md\:text-7xl {
     font-size: 4.5rem;
     line-height: 1;
@@ -1367,6 +1446,10 @@ button.danger2:after{
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .md\:opacity-50 {
+    opacity: 0.5;
   }
 }
 

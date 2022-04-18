@@ -6,20 +6,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker</title>
     <link rel="icon" href="logo/icon-72x72.png">
-    <link rel="manifest" href="manifest.json">
+    <!-- <link rel="manifest" href="manifest.json"> -->
     <meta name="theme-color" content="#000">
-    
     <link rel="stylesheet" href="./css/output.css">
 </head>
 <body class="relative bg-black text-white flex justify-center items-center w-screen h-screen overflow-hidden selection:bg-green-900">
     
-    <div class="absolute top-0 right-0 w-1/4 h-1 md:h-[6px] bg-green-900" style="clip-path: polygon(20% 0%, 100% 0, 100% 20%, 100% 80%, 100% 100%, 39% 100%, 0 0);"></div>
-    <div class="absolute top-0 right-0 h-1/4 w-1 md:w-[6px] bg-green-900" style="clip-path: polygon(20% 0%, 80% 0%, 100% 0, 100% 80%, 100% 100%, 0% 80%, 0 0);"></div>
+    <svg class="absolute w-screen h-screen -z-20" viewBox="0 0 375 812" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="5.22043" y1="90.9372" x2="365.429" y2="90.9372" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="5.22043" y1="125.675" x2="365.429" y2="125.675" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="5.22043" y1="90.9372" x2="365.429" y2="90.9372" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="5.22043" y1="113.517" x2="365.429" y2="113.517" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="5.22043" y1="102.227" x2="365.429" y2="102.227" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="5.22043" y1="44.9094" x2="365.429" y2="44.9094" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="5.22043" y1="79.6473" x2="365.429" y2="79.6473" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="5.22043" y1="44.9094" x2="365.429" y2="44.9094" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="5.22043" y1="67.489" x2="365.429" y2="67.489" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="5.22043" y1="56.1992" x2="365.429" y2="56.1992" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="5.22043" y1="34.488" x2="365.429" y2="34.488" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="5.22043" y1="22.3297" x2="365.429" y2="22.3297" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="5.22043" y1="11.0398" x2="365.429" y2="11.0398" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="11.3109" y1="228.152" x2="371.52" y2="228.152" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="11.3109" y1="262.89" x2="371.52" y2="262.89" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="11.3109" y1="228.152" x2="371.52" y2="228.152" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="11.3109" y1="250.732" x2="371.52" y2="250.732" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="11.3109" y1="239.442" x2="371.52" y2="239.442" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="11.3109" y1="182.124" x2="371.52" y2="182.124" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="11.3109" y1="216.862" x2="371.52" y2="216.862" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="11.3109" y1="182.124" x2="371.52" y2="182.124" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="11.3109" y1="204.704" x2="371.52" y2="204.704" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="11.3109" y1="193.414" x2="371.52" y2="193.414" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="11.3109" y1="136.965" x2="371.52" y2="136.965" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="11.3109" y1="171.703" x2="371.52" y2="171.703" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="11.3109" y1="136.965" x2="371.52" y2="136.965" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="11.3109" y1="159.545" x2="371.52" y2="159.545" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="11.3109" y1="148.255" x2="371.52" y2="148.255" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="8.70071" y1="365.077" x2="368.91" y2="365.077" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="8.70071" y1="399.815" x2="368.91" y2="399.815" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="8.70071" y1="365.077" x2="368.91" y2="365.077" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="8.70071" y1="387.657" x2="368.91" y2="387.657" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="8.70071" y1="376.367" x2="368.91" y2="376.367" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="8.70071" y1="319.049" x2="368.91" y2="319.049" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="8.70071" y1="353.787" x2="368.91" y2="353.787" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="8.70071" y1="319.049" x2="368.91" y2="319.049" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="8.70071" y1="341.629" x2="368.91" y2="341.629" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="8.70071" y1="330.339" x2="368.91" y2="330.339" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="8.70071" y1="273.89" x2="368.91" y2="273.89" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="8.70071" y1="308.628" x2="368.91" y2="308.628" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="8.70071" y1="273.89" x2="368.91" y2="273.89" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="8.70071" y1="296.47" x2="368.91" y2="296.47" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="8.70071" y1="285.18" x2="368.91" y2="285.18" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="14.7912" y1="502.292" x2="375" y2="502.292" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="14.7912" y1="537.03" x2="375" y2="537.03" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="14.7912" y1="502.292" x2="375" y2="502.292" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="14.7912" y1="524.872" x2="375" y2="524.872" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="14.7912" y1="513.582" x2="375" y2="513.582" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="14.7912" y1="456.264" x2="375" y2="456.264" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="14.7912" y1="491.002" x2="375" y2="491.002" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="14.7912" y1="456.264" x2="375" y2="456.264" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="14.7912" y1="478.844" x2="375" y2="478.844" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="14.7912" y1="467.554" x2="375" y2="467.554" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="14.7912" y1="411.105" x2="375" y2="411.105" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="14.7912" y1="445.843" x2="375" y2="445.843" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="14.7912" y1="411.105" x2="375" y2="411.105" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="14.7912" y1="433.685" x2="375" y2="433.685" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="14.7912" y1="422.395" x2="375" y2="422.395" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line y1="639.217" x2="360.209" y2="639.217" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line y1="673.955" x2="360.209" y2="673.955" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line y1="639.217" x2="360.209" y2="639.217" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line y1="661.797" x2="360.209" y2="661.797" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line y1="650.507" x2="360.209" y2="650.507" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line y1="593.189" x2="360.209" y2="593.189" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line y1="627.927" x2="360.209" y2="627.927" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line y1="593.189" x2="360.209" y2="593.189" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line y1="615.769" x2="360.209" y2="615.769" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line y1="604.479" x2="360.209" y2="604.479" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line y1="548.03" x2="360.209" y2="548.03" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line y1="582.768" x2="360.209" y2="582.768" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line y1="548.03" x2="360.209" y2="548.03" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line y1="570.61" x2="360.209" y2="570.61" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line y1="559.32" x2="360.209" y2="559.32" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="6.09048" y1="776.432" x2="366.299" y2="776.432" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="6.09048" y1="811.17" x2="366.299" y2="811.17" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="6.09048" y1="776.432" x2="366.299" y2="776.432" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="6.09048" y1="799.012" x2="366.299" y2="799.012" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="6.09048" y1="787.722" x2="366.299" y2="787.722" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="6.09048" y1="730.404" x2="366.299" y2="730.404" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="6.09048" y1="765.142" x2="366.299" y2="765.142" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="6.09048" y1="730.404" x2="366.299" y2="730.404" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="6.09048" y1="752.984" x2="366.299" y2="752.984" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="6.09048" y1="741.694" x2="366.299" y2="741.694" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="6.09048" y1="685.245" x2="366.299" y2="685.245" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="6.09048" y1="719.983" x2="366.299" y2="719.983" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="6.09048" y1="685.245" x2="366.299" y2="685.245" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="6.09048" y1="707.825" x2="366.299" y2="707.825" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+        <line x1="6.09048" y1="696.535" x2="366.299" y2="696.535" stroke="#9BBFA1" stroke-opacity="0.01" stroke-width="0.5"/>
+    </svg>
 
-    <div class="absolute bottom-0 left-0 w-1/4 h-1 md:h-[6px] bg-green-900" style="clip-path: polygon(0 0, 48% 0, 100% 99%, 0 100%, 0% 80%, 0% 20%);"></div>
-    <div class="absolute bottom-0 left-0 h-1/4 w-1 md:w-[6px] bg-green-900" style="clip-path: polygon(0 0, 0 0, 100% 18%, 100% 80%, 100% 99%, 0 100%, 0% 80%, 0% 20%);"></div>
+    <div class="absolute decorator-2 top-0 right-0 w-1/4 h-[3px] md:h-[6px] bg-green-900" style="clip-path: polygon(20% 0%, 100% 0, 100% 20%, 100% 80%, 100% 100%, 39% 100%, 0 0);"></div>
+    <div class="absolute decorator-2 top-0 right-0 h-1/4 w-[3px] md:w-[6px] bg-green-900" style="clip-path: polygon(20% 0%, 80% 0%, 100% 0, 100% 80%, 100% 100%, 0% 80%, 0 0);"></div>
+
+    <div class="absolute decorator-2 bottom-0 left-0 w-1/4 h-[3px] md:h-[6px] bg-green-900" style="clip-path: polygon(0 0, 48% 0, 100% 99%, 0 100%, 0% 80%, 0% 20%);"></div>
+    <div class="absolute decorator-2 bottom-0 left-0 h-1/4 w-[3px] md:w-[6px] bg-green-900" style="clip-path: polygon(0 0, 0 0, 100% 18%, 100% 80%, 100% 99%, 0 100%, 0% 80%, 0% 20%);"></div>
     
-    <svg class="absolute -top-[10%] -left-[20%] blur-[164px] -z-10 " width="336" height="281" viewBox="0 0 336 281" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="absolute -top-10 left-0 md:-left-[10%] blur-[130px] -z-10 w-[260px] md:w-[600px] h-[350px] md:opacity-50" viewBox="0 0 336 281" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M244.662 232.265C189.162 262.265 130.162 298.265 51 271.539C-25.6926 218.546 -16.0557 120.582 92.5139 55.4089C173.318 6.90322 261.89 -25.3107 310.667 26.3466C359.445 78.0039 334.957 158.527 244.662 232.265Z" fill="url(#paint0_linear_15_61)"/>
         <defs>
         <linearGradient id="paint0_linear_15_61" x1="216.74" y1="-21.4328" x2="251.892" y2="248.493" gradientUnits="userSpaceOnUse">
@@ -29,23 +119,35 @@
         </defs>
     </svg>
 
-    <svg class="absolute -bottom-10 right-10 blur-[100px] -z-10 w-36 opacity-80" width="336" height="281" viewBox="0 0 336 281" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M244.662 232.265C189.162 262.265 130.162 298.265 51 271.539C-25.6926 218.546 -16.0557 120.582 92.5139 55.4089C173.318 6.90322 261.89 -25.3107 310.667 26.3466C359.445 78.0039 334.957 158.527 244.662 232.265Z" fill="url(#paint0_linear_15_61)"/>
+    <svg class="absolute bottom-0 right-0 blur-[130px] -z-10 w-[300px] md:w-[900px] h-[270px] md:opacity-50" viewBox="0 0 274 191" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M233.5 170C206.249 192.933 140 195 89.5 184.5C-16.0001 173 -61 148.915 150 89C192.678 76.8814 182.71 -54.8851 252.766 26.6716C277.115 52.4578 289.508 122.867 233.5 170Z" fill="url(#paint0_linear_15_61)"/>
         <defs>
-        <linearGradient id="paint0_linear_15_61" x1="216.74" y1="-21.4328" x2="251.892" y2="248.493" gradientUnits="userSpaceOnUse">
+        <linearGradient id="paint0_linear_15_61" x1="206.46" y1="6.77848" x2="240.235" y2="148.245" gradientUnits="userSpaceOnUse">
         <stop stop-color="#003553"/>
         <stop offset="1" stop-color="#00530D"/>
         </linearGradient>
         </defs>
     </svg>
-
-    <button id="install" class="hidden absolute top-5 right-5 font-oswald px-4 text-sm text-white bg-green-900">Install</button>
+        
+    <svg class="absolute top-6 left-6 w-6 h-4" id="refresh" viewBox="0 0 17 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_58_2)">
+    <path d="M16.4755 2.32389H2.34112L4.02667 1.12196C4.25943 0.956133 4.3391 0.588626 4.20477 0.300986C4.07049 0.0133473 3.77294 -0.0855368 3.54005 0.0808156L0.281866 2.40407C0.131341 2.5115 0.0385132 2.70994 0.0385132 2.9248C0.0385132 3.13935 0.131299 3.33779 0.281866 3.44522L3.54005 5.76905C3.61664 5.82396 3.70031 5.84975 3.78289 5.84975C3.95109 5.84975 4.11473 5.74201 4.20477 5.54919C4.33914 5.26155 4.25943 4.89404 4.02667 4.7279L2.34163 3.52623H15.9889V15.3488C15.9889 15.6807 16.2068 15.9499 16.4755 15.9499C16.7443 15.9499 16.9621 15.6807 16.9621 15.3488V2.92501C16.9621 2.59303 16.7443 2.32389 16.4755 2.32389Z" fill="#14532d"/>
+    <path d="M16.7184 17.5549L13.4602 15.231C13.2274 15.0647 12.9297 15.1636 12.7955 15.4513C12.6611 15.7386 12.7408 16.1063 12.9736 16.2722L14.6586 17.4742H1.01134V5.65162C1.01134 5.31964 0.793418 5.05045 0.524718 5.05045C0.255934 5.05045 0.0380554 5.31964 0.0380554 5.65162V18.0754C0.0380554 18.4073 0.255934 18.6764 0.524718 18.6764H14.6591L12.9736 19.8781C12.7408 20.0439 12.6611 20.4117 12.7955 20.6994C12.8855 20.8922 13.0492 21 13.2173 21C13.2999 21 13.3835 20.9742 13.4602 20.9192L16.7184 18.5959C16.8688 18.4887 16.9617 18.2904 16.9617 18.0756C16.9617 17.8607 16.869 17.6623 16.7184 17.5549Z" fill="#14532d"/>
+    </g>
+    <defs>
+    <clipPath id="clip0_58_2">
+    <rect width="17" height="21" fill="white"/>
+    </clipPath>
+    </defs>
+    </svg>
+        
+    <button id="install" class="hidden absolute top-5 right-5 font-oswald px-4 text-sm text-white bg-green">Install</button>
 
     <div class="w-3/4 max-w-xl md:max-w-none md:absolute md:right-16 md:w-[55%]">
         <p class="font-oswald font-extralight text-glow">money left :</p>
         <h1 class="text-5xl md:text-7xl xl:text-8xl font-sarpanch" id="main-text">0</h1>
         
-        <div class="line decorator"></div>
+        <div class="line decorator-2"></div>
 
         <p class="font-oswald font-extralight pb-2 text-glow">new spent :</p>
         <form id="today-spent-form">
@@ -58,23 +160,23 @@
             </div>
         </form>
 
-        <div class="line decorator" style="margin-top: 10px !important;"></div>
+        <div class="line decorator-2" style="margin-top: 10px !important;"></div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 grid-rows-5 gap-5 w-full font-oswald text-sm mb-5 md:mb-0 md:text-xl h-[136px] md:h-[132px]">
             <div class="overflow-y-scroll row-span-5">
-                <h6 class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1 text-glow">today spent :</h6>
+                <h6 class="border border-white border-opacity-25 border-l-0 border-t-0 border-r-0 pl-1 text-glow">today spent :</h6>
                 <ul class="w-[80%] float-right" id="today-spents">
                     
                 </ul>
             </div>
             <div class="row-span-3">
-                <h6 class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1 text-glow">last 3 days spent :</h6>
+                <h6 class="border border-white border-opacity-25 border-l-0 border-t-0 border-r-0 pl-1 text-glow">last 3 days spent :</h6>
                 <ul class="w-[80%] float-right" id="three-days-spents">
                     
                 </ul>
             </div>
             <div class="row-span-1">
-                <h6 class="border border-white border-opacity-40 border-l-0 border-t-0 border-r-0 pl-1 text-glow">this month spent :</h6>
+                <h6 class="border border-white border-opacity-25 border-l-0 border-t-0 border-r-0 pl-1 text-glow">this month spent :</h6>
                 <ul class="w-[80%] float-right" id="this-month-spent">
 
                 </ul>
@@ -90,7 +192,7 @@
     </div>
 
     <div id="add-reset" class="absolute w-screen h-screen bottom-0 -z-10 md:w-[30%] md:z-0 md:left-12">
-        <div id="add-reset-content" class="h-1/2 md:h-full min-h-[360px] absolute bottom-0 w-full flex justify-center items-center bg-black border-4 border-green-900 md:border-0">
+        <div id="add-reset-content" class="h-1/2 md:h-full min-h-[360px] absolute bottom-0 w-full flex justify-center items-center bg-black md:bg-transparent border-4 border-green-900 md:border-0">
 
             <div id="separator" class="hidden md:block decorator absolute h-[85%] w-[1px] -right-10 bg-green-900"></div>
 
@@ -101,22 +203,22 @@
                         <path d="M6.61788 0L12.849 8.25H0.386724L6.61788 0Z" fill="#E9E9E9" fill-opacity="0.97"/>
                     </svg>
                 </div>
-                <div class="line decorator"></div>
+                <div class="line decorator-2"></div>
 
-                <p class="font-oswald font-extralight pb-2">add income :</p>
+                <p class="font-oswald font-extralight pb-2 text-glow">add income :</p>
                 <form id="income-form">
                     <div class="flex">
                         <div class="decorator flex-[1] w-3 bg-green-700 h-12 float-left inline-block mr-1 border border-green-700 shadow-lg shadow-green-900/50">&nbsp;</div>
                         <input type="number" class="flex-[22] p-2 inline-block" id="income-input"/>
                     </div>
                     <div class="flex justify-end items-center">
-                        <button type="submit" class="font-oswald px-5 mb-5">add</button>
+                        <button type="submit" class="font-oswald px-5 mb-5 text-glow">add</button>
                     </div>
                 </form>
                 
-                <div class="line decorator"></div>
+                <div class="line decorator-2"></div>
 
-                <button class="danger" id="reset-saving">reset saving</button>
+                <button class="danger text-glow" id="reset-saving">reset saving</button>
             </div>
         </div>
     </div>
@@ -124,10 +226,10 @@
     <div id="confirm-popup" class="hidden opacity-0 absolute h-screen w-screen justify-center items-center bg-[#00000088] z-20">
         <div class="flex relative w-[180px] h-[150px] justify-center items-center flex-col border border-red-900 bg-black">
 
-            <p class="font-oswald">are you sure?</p>
+            <p class="font-oswald text-glow">are you sure?</p>
             <div class="flex items-center justify-center">
-                <button class="border-0 my-2 p-2 block font-oswald cursor-pointer" id="cancel-reset">cancel</button>
-                <button id="delete-saving" class="danger2 border border-red-900 my-1 p-1 font-oswald px-4
+                <button class="border-0 my-2 p-2 block font-oswald cursor-pointer text-glow" id="cancel-reset">cancel</button>
+                <button id="delete-saving" class="danger2 border border-red-900 my-1 p-1 font-oswald px-4 text-glow
                                                 hover:bg-red-900 hover:bg-opacity-10 
                                                   transition ease-in duration-200">
                     reset
@@ -153,9 +255,9 @@
     <div id="empty-popup" class="hidden absolute h-screen w-screen justify-center items-center bg-transparent z-20 transition-opacity duration-500 ease-out">
         <div class="flex relative w-[150px] h-[120px] justify-center items-center flex-col border border-red-900 bg-black">
 
-            <button id="empty-btn" class="absolute right-4 top-3 border-0 float-right my-0 p-0 text-gray-400">X</button>
+            <button id="empty-btn" class="absolute right-4 top-3 border-0 float-right my-0 p-0 text-gray-400" style="background: none !important;">X</button>
 
-            <p class="font-oswald">input is empty</p>
+            <p class="font-oswald text-glow">input is empty</p>
 
             <div class="absolute top-0 right-0 w-[40%] h-1 bg-red-900" style="clip-path: polygon(20% 0%, 100% 0, 100% 20%, 100% 80%, 100% 100%, 39% 100%, 0 0);"></div>
             <div class="absolute top-0 right-0 h-[40%] w-1 bg-red-900" style="clip-path: polygon(20% 0%, 80% 0%, 100% 0, 100% 80%, 100% 100%, 0% 80%, 0 0);"></div>
@@ -170,7 +272,7 @@
 
             <button id="money-lest-btn" class="absolute right-4 top-3 border-0 float-right my-0 p-0 text-gray-400">X</button>
 
-            <p class="font-oswald">not enough money left</p>
+            <p class="font-oswald text-glow">not enough money left</p>
 
             <div class="absolute top-0 right-0 w-[40%] h-1 bg-red-900" style="clip-path: polygon(20% 0%, 100% 0, 100% 20%, 100% 80%, 100% 100%, 39% 100%, 0 0);"></div>
             <div class="absolute top-0 right-0 h-[40%] w-1 bg-red-900" style="clip-path: polygon(20% 0%, 80% 0%, 100% 0, 100% 80%, 100% 100%, 0% 80%, 0 0);"></div>
@@ -182,33 +284,33 @@
     
     <script src="./script/script.js"></script>
     <script>
-        if('serviceWorker' in navigator){
-            try{
-                navigator.serviceWorker.register('./service-worker.js');
-            }
-            catch(err){
-                console.log(err);
-            }
-        }
+        // if('serviceWorker' in navigator){
+        //     try{
+        //         navigator.serviceWorker.register('./service-worker.js');
+        //     }
+        //     catch(err){
+        //         console.log(err);
+        //     }
+        // }
 
-        let deferredPrompt;
-        const sfx = new Audio('../sfx/click.wav');
-        const install = document.getElementById('install');
+        // let deferredPrompt;
+        // const sfx = new Audio('../sfx/click.wav');
+        // const install = document.getElementById('install');
 
-        window.addEventListener('beforeinstallprompt', e => {
-            install.style.display = 'block';       
-            deferredPrompt = e;                     
-        });
+        // window.addEventListener('beforeinstallprompt', e => {
+        //     install.style.display = 'block';       
+        //     deferredPrompt = e;                     
+        // });
 
-        //add click event listener to install button
-        install.addEventListener('click', async () => {
-            sfx.play();
-            if (deferredPrompt !== null) {
-                deferredPrompt.prompt();
-                const {outcome} = await deferredPrompt.userChoice;
-                if (outcome === 'accepted') deferredPrompt = null;
-            }
-        });
+        // //add click event listener to install button
+        // install.addEventListener('click', async () => {
+        //     sfx.play();
+        //     if (deferredPrompt !== null) {
+        //         deferredPrompt.prompt();
+        //         const {outcome} = await deferredPrompt.userChoice;
+        //         if (outcome === 'accepted') deferredPrompt = null;
+        //     }
+        // });
         
     </script>
 </body>
