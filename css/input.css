@@ -74,7 +74,15 @@ input[type=number] {
     #add-reset-content{
         bottom: 0;
         transform: translateY(0%);
+        box-shadow:none;
     }
+}
+
+#separator{
+    box-shadow:0 0 2px #003813,
+                0 0 10px #003813,
+                0 0 20px #003813,
+                0 0 30px #003813;
 }
 
 /* --------------------tailwind applies---------------- */

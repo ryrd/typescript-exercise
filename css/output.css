@@ -510,8 +510,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   top: -2.5rem;
 }
 
-.top-6 {
-  top: 1.5rem;
+.top-7 {
+  top: 1.75rem;
 }
 
 .left-6 {
@@ -540,10 +540,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .top-3 {
   top: 0.75rem;
-}
-
-.top-7 {
-  top: 1.75rem;
 }
 
 .-z-20 {
@@ -977,6 +973,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.blur-\[100px\] {
+  --tw-blur: blur(100px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .transition {
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -1072,7 +1073,15 @@ input[type=number] {
   #add-reset-content{
     bottom: 0;
     transform: translateY(0%);
+    box-shadow:none;
   }
+}
+
+#separator{
+  box-shadow:0 0 2px #003813,
+                0 0 10px #003813,
+                0 0 20px #003813,
+                0 0 30px #003813;
 }
 
 /* --------------------tailwind applies---------------- */
@@ -1366,6 +1375,10 @@ button.danger2{
     left: -10%;
   }
 
+  .md\:-right-20 {
+    right: -5rem;
+  }
+
   .md\:right-16 {
     right: 4rem;
   }
@@ -1406,8 +1419,8 @@ button.danger2{
     width: 6px;
   }
 
-  .md\:w-\[600px\] {
-    width: 600px;
+  .md\:w-\[700px\] {
+    width: 700px;
   }
 
   .md\:w-\[900px\] {
