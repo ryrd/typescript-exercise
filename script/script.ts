@@ -45,7 +45,7 @@ const counterDown = new Audio('../sfx/counterdown.wav');
 //---------------------------------------------
 //---------------------------------------------
 
-// -------------------reusable function---------------------
+// -------------------functions---------------------
 const toggleAddReset :Function = (): void => {
     addReset.classList.toggle("-z-10");
     addReset.classList.toggle("z-10");
@@ -142,6 +142,8 @@ if(localStorage.getItem('current-date') !== null) {
                 last3daysSpents[2] = last3daysSpents[1];
                 last3daysSpents[1] = last3daysSpents[0];
                 last3daysSpents[0] = lastSpents.reduce((total, eachSpent) => total+eachSpent);
+                addthreeSpent(last3daysSpents);
+                lastSpentList.innerHTML = '';
             }
         }
 
@@ -150,6 +152,8 @@ if(localStorage.getItem('current-date') !== null) {
             last3daysSpents[2] = last3daysSpents[1];
             last3daysSpents[1] = last3daysSpents[0];
             last3daysSpents[0] = lastSpents.length ? lastSpents.reduce((total, eachSpent) => total+eachSpent) : 0;
+            addthreeSpent(last3daysSpents);
+            lastSpentList.innerHTML = '';
         }
 
         //change current date localstorage

@@ -85,6 +85,12 @@ input[type=number] {
                 0 0 30px #003813;
 }
 
+@media (min-width: 1100px){
+    #separator{
+        display: block;
+    }
+}
+
 /* --------------------tailwind applies---------------- */
 .line{
     @apply bg-green-900 h-[2px] w-full my-5 shadow-lg shadow-green-500/50 z-10;
