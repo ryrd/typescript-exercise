@@ -9,8 +9,6 @@ let previousMoneyLeft : number;
 //---------------------DOM selections----------------
 const mainText = document.querySelector('#main-text') as HTMLHeadingElement;
 
-const refresh = document.querySelector('#refresh')!;
-
 const form = document.querySelector('#today-spent-form') as HTMLFormElement;
 const todaySpentInput = document.querySelector('#today-spent-input') as HTMLInputElement;
 
@@ -313,10 +311,6 @@ window.addEventListener('resize', () => {
 });
 
 //---------UI interaction---------------------
-refresh.addEventListener('click',() => {
-    location.reload();
-});
-
 //show add reset
 showAddReset.addEventListener('click', () => {
     click.play();
