@@ -7,7 +7,6 @@ let monthSpent = 0;
 let previousMoneyLeft;
 //---------------------DOM selections----------------
 const mainText = document.querySelector('#main-text');
-const refresh = document.querySelector('#refresh');
 const form = document.querySelector('#today-spent-form');
 const todaySpentInput = document.querySelector('#today-spent-input');
 const lastSpentList = document.querySelector('#today-spents');
@@ -270,9 +269,6 @@ window.addEventListener('resize', () => {
     ;
 });
 //---------UI interaction---------------------
-refresh.addEventListener('click', () => {
-    location.reload();
-});
 //show add reset
 showAddReset.addEventListener('click', () => {
     click.play();
